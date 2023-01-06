@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Maxim_Brand</title>
+    <link rel="stylesheet" href="/static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" >
+    <script src="/static/js/main.js" th:src="@{/js/main.js}" defer></script>
+</head>
+<body>
+<header class="padding_lr_300">
+    <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+    <label id="hambuger">
+        <input type="checkbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+</header>
+<nav class="menu_on">
+    <ul class="menu">
+        <li><a href='about.html' th:href="@{about}">ABOUT MAXIM</a></li>
+        <li><a href='product.html' th:href="@{product}">PRODUCT</a></li>
+        <li><a href='news.html' th:href="@{news}">NEWS & MEDIA</a></li>
+    </ul>
+</nav>
+    <main>
+        <section>
+            <article class="cf">
+                <video src="/static/video/KANU_caramel_30s.mp4" th:src="@{/video/KANU_caramel_30s.mp4}" muted autoplay controls loop></video>
+            </article>
+        </section>
+        <section>
+            <article class="product padding_lr_300">
+                <div class="product_left">
+                    <div class="product_info_box">
+                        <div class="product_info on">
+                            <h3>MOCHA <span>GOLD</span></h3>
+                            <p>진정한 커피의 부드러움 <br/>
+                                <span>맥심 모카골드 마일드</span>
+                            </p>
+                        </div>
+                        <div class="product_info">
+                            <h3>DARK <span>ROAST</span></h3>
+                            <p>
+                                진한 초콜릿 맛과 스모키한 향이 조화 <br/>
+                                <span>맥심카누 다크로스트 아메리카노</span>
+                            </p>
+                        </div>
+                        <div class="product_info">
+                            <h3>SMOKY <span>BLACK</span></h3>
+                            <p>
+                                스모키 한 맛과 향 <br/>
+                                <span>맥심 티오피 스모키 블랙</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="product.html" th:href="@{/product}"><button class="product_btn">PRODUCT</button></a>
+                    </div>
+                </div>
+                <div class="product_right">
+                    <ul class="product_menu">
+                        <li class="on">Maxim</li>
+                        <li>KANU</li>
+                        <li>T.O.P</li>
+                    </ul>
+                    <div class="product_img">
+                        <img src="/static/img/main/product1.png" th:src="@{/img/main/product1.png}" class="on" alt="MOCHA">
+                        <img src="/static/img/main/product2.png" th:src="@{/img/main/product2.png}" alt="KANU">
+                        <img src="/static/img/main/product3.png" th:src="@{/img/main/product3.png}" alt="TOP">
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article class="story padding_lr_300">
+                <div class="story_box">
+                    <div class="story_text">
+                        <h2><span>맥심</span>은 <br/>
+                            언제 어디서나 믿고 즐길 수 있는 <br/>
+                            좋은 커피 입니다.</h2>
+                        <p>1980년 발매된 이후 동서식품의 주력브랜드로 성장한 맥심은 학국의 커피시장을 <br/>
+                            선도하는 시장점유율 1위인 No.1 브랜드로 확고한 시장 위치를 차지하고 있습니다. <br/>
+                            맥심은 국내 커피 역사를 이끌어온 정통성과 세계적인 <span>기술력</span>, 커피전문가의 <span>노하우</span>로 <br/>
+                            고품질의 커피 본연의 맛과 향을 즐길 수 있는 좋은 커피입니다.</p>
+                    </div>
+                    <a href="about.html" th:href="@{/about}"><button class="story_btn">ABOUT MAXIM</button></a></div>
+            </article>
+        </section>
+        <section>
+            <article class="history">
+                <div class="history_box on">
+                    <img src="/static/img/main/section04_bg_1980.png" th:src="@{/img/main/section04_bg_1980.png}" class="history_bg_img" alt="">
+                    <img src="/static/img/main/since_1980.png" th:src="@{/img/main/since_1980.png}" class="since on" alt="since_img">
+                    <div class="history_text_box on">
+                        <div class="history_title">
+                            <h3>1980's</h3>
+                            <p><span>Maxim</span>의 시작</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>1980.01</span>
+                            <p>맥심 생산 판매 개시</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>1986.12</span>
+                            <p> 미국에 수출(수출실적 1,067만 달러 달성) <br>
+                                식품 수출 유공자 표창(보건복지부 장관)</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>1987.11</span>
+                            <p> LONDON INTERNATIONAL ADVERTISING AWARDS<br>
+                                음료부분 입상(명사 시리즈 TV-CM)</p>
+                        </div>
+                        <a href="#">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="history_box">
+                    <img src="/static/img/main/section04_bg_1990.png" th:src="@{/img/main/section04_bg_1990.png}" class="history_bg_img" alt="">
+                    <img src="/static/img/main/since_1990.png" th:src="@{/img/main/since_1990.png}" class="since" alt="since_img">
+                    <div class="history_text_box">
+                        <div class="history_title">
+                            <h3>1990's</h3>
+                            <p><span>Maxim</span>의 성장</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>1998.02</span>
+                            <p>맥심 유럽 수출</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>1999.03</span>
+                            <p> 맥심, 한국능률협회 선정 커피 부분 1위 브랜드</p>
+                        </div>
+                        <a href="#">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="history_box">
+                    <img src="/static/img/main/section04_bg_2000.png" th:src="@{/img/main/section04_bg_2000.png}" class="history_bg_img" alt="">
+                    <img src="/static/img/main/since_2000.png" th:src="@{/img/main/since_2000.png}" class="since" alt="since_img">
+                    <div class="history_text_box">
+                        <div class="history_title">
+                            <h3>2000's</h3>
+                            <p><span>T.O.P</span> 의 탄생</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2000.03</span>
+                            <p>맥심, 2년 연속 한국능률협회
+                                선정 커피부분 1위 브랜드</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2001.03</span>
+                            <p>맥심커피 대한민국 파워브랜드 1위</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2008.06</span>
+                            <p>맥심 T.O.P 출시</p>
+                        </div>
+                        <a href="#">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="history_box">
+                    <img src="/static/img/main/section04_bg_2010.png" th:src="@{/img/main/section04_bg_2010.png}" class="history_bg_img" alt="">
+                    <img src="/static/img/main/since_2010.png" th:src="@{/img/main/since_2010.png}" class="since" alt="since_img">
+                    <div class="history_text_box">
+                        <div class="history_title">
+                            <h3>2010's</h3>
+                            <p><span>KANU</span> 의 탄생</p>
+                        </div>
+
+                        <div class="history_text">
+                            <p><span>2011.10</span></p>
+                            <p>맥심 KANU 출시</p>
+                        </div>
+
+                        <div class="history_text">
+                            <p><span>2013.08</span></p>
+                            <p> 카누 2013 아시아 마케팅 효율성 페스티벌(FAME) 최고상 수상</p>
+                        </div>
+                        <a href="#">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="history_box">
+                    <img src="/static/img/main/section04_bg_2020.png" th:src="@{/img/main/section04_bg_2020.png}" class="history_bg_img" alt="">
+                    <img src="/static/img/main/since_2020.png" th:src="@{/img/main/since_2020.png}" class="since" alt="since_img">
+                    <div class="history_text_box">
+                        <div class="history_title">
+                            <h3>2020's</h3>
+                            <p><span>NOW</span></p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2020.03</span>
+                            <p>맥심X무민 한정판 '스페셜 패키지' 출시</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2022.02</span>
+                            <p>맥심 카누 라이트 로스트 아메리카노 출시</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2022.06</span>
+                            <p>맥심 커피믹스 X 미니언즈 '스페셜 패키지' 출시</p>
+                        </div>
+
+                        <div class="history_text">
+                            <span>2022.07</span>
+                            <p>맥심 티오피 미디엄 로스트 2종 출시</p>
+                        </div>
+                        <a href="#">자세히 보기 →</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article class="news padding_lr_300">
+                <h2>NEWS</h2>
+                <div class="news_box">
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img1.jpg" alt="">
+                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img2.jpg" alt="">
+                        <h3>동서식품, ‘맥심 커피믹스X미니언즈 스페셜 패키지’ 출시</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img3.jpg" alt="">
+                        <h3>동서식품, 맥심 플랜트서 라디오 팝업 스튜디오 진행</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img4.jpg" alt="">
+                        <h3>동서식품, 맥심 플랜트 오픈 4주년 기념 이벤트 진행</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img1.jpg" alt="">
+                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img2.jpg" alt="">
+                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img3.jpg" alt="">
+                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
+                    </a>
+                    <a href="#" th:href="@{/main}" class="news_card">
+                        <img src="/static/img/main/section05_news_img4.jpg" alt="">
+                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
+                    </a>
+                </div>
+                <div class="news_link">
+                    <a href="#">더 많은 기사 보러가기 > </a>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="padding_lr_300">
+        <div class="footer_sub_menu_box">
+            <div class="sub_menu">
+                <a href="about.html" th:href="@{about}">ABOUT MAXIM</a>
+                <a href="product.html" th:href="@{product}">PRODUCT</a>
+                <a href="news.html" th:href="@{news}">NEWS & MEDIA</a>
+                <div>
+                    <p><ins>ADDRESS</ins></p>
+                    <p>[부평공장] 인천시 부평구 새벌로 55</p>
+                    <p>[서울사무소] 서울시 마포구 독막로324 (도화동,동서빌딩)</p>
+                </div>
+            </div>
+            <div class="sub_menu">
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용약관</a>
+                <a href="#">영상정보처리기기운영관리방침</a>
+                <div>
+                    <p><ins>TEL</ins></p>
+                    <p>대표번호 1588-2233</p>
+                    <p>고객상담실 080-023-9114</p>
+                </div>
+            </div>
+            <div class="sub_menu">
+                <a href="#">FAMILY SITE +</a>
+            </div>
+        </div>
+        <div class="brand_sns_box">
+            <div class="sns">
+                <p>Maxim</p>
+                <div class="sns_icon">
+                    <a href="https://www.facebook.com/maximcoffeemix/" th:href="@{https://www.facebook.com/maximcoffeemix/}" target="_blank">
+                        <img src="/static/img/icon/facebook.png" th:src="@{/img/icon/facebook.png}" alt="facebook">
+                    </a>
+                    <a href="https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/" th:href="@{https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/}" target="_blank">
+                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                    </a>
+                </div>
+            </div>
+            <div class="sns">
+                <p>KANU</p>
+                <div class="sns_icon">
+                    <a href="http://www.maximkanu.co.kr/pc.asp" th:href="@{http://www.maximkanu.co.kr/pc.asp}" target="_blank">
+                        <img src="/static/img/icon/kanu.png" th:src="@{/img/icon/kanu.png}" alt="kanu">
+                    </a>
+                    <a href="https://www.instagram.com/kanucoffee.official/" th:href="@{https://www.instagram.com/kanucoffee.official/}" target="_blank">
+                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                    </a>
+                </div>
+            </div>
+            <div class="sns">
+                <p>T.O.P</p>
+                <div class="sns_icon">
+                    <a href="https://www.instagram.com/maxim_t.o.p/" th:href="@{https://www.instagram.com/maxim_t.o.p/}" target="_blank">
+                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

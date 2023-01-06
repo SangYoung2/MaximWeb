@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.maxim_pj.mapper.MainMapper">
+
+<!--    <select id="get_all_product" resultType="com.example.maxim_pj.vos.ProductVO">-->
+<!--        SELECT * FROM `coffee_db`.`product_tbl`-->
+<!--    </select>-->
+
+</mapper>
+
+
+
+
+
+
+
+
+

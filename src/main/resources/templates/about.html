@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT MAXIM</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="../static/css/about.css" th:href="@{/css/about.css}">
+    <script src="/static/js/about.js" th:src="@{/js/about.js}" defer></script>
+</head>
+
+<body>
+    <header class="padding_lr_300">
+        <a href="main.html" th:href="@{/main}"><img src="/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+        <label id="hambuger">
+            <input type="checkbox">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    <nav class="menu_on">
+        <ul class="menu">
+            <li><a href='about.html' th:href="@{about}">ABOUT MAXIM</a></li>
+            <li><a href='product.html' th:href="@{product}">PRODUCT</a></li>
+            <li><a href='news.html' th:href="@{news}">NEWS & MEDIA</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h1>ABOUT MAXIM</h1>
+        <div class="line"></div>
+        <ul class="submenu">
+            <li class="select">STORY</li>
+            <li>HISTORY</li>
+            <li>SLOGAN</li>
+        </ul>
+
+        <article class="on">
+            <div class="story">
+                <h2>언제 어디서든 좋은 커피 맥심</h2>
+                <div class="story_box">
+                    <img src="/static/img/about/story/story_img1.png" th:src="@{/img/about/story/story_img1.png}" alt="story_img1" class="story_img">
+                    <p>
+                        1980년 발매된 이후 동서식품의 <br>
+                        주력 브랜드로성장한 맥심은 <br>
+                        한국의 커피시장을 선도하는 <br>
+                        시장점유율 1위의 No.1 브랜드로 <br>
+                        확고한 위치를 차지하고 있습니다.
+                    </p>
+                </div>
+                <div class="story_box">
+                    <img src="/static/img/about/story/story_img2.png" th:src="@{/img/about/story/story_img2.png}" alt="story_img2" class="story_img">
+                    <p>
+                        맥심은 국내 커피 역사를 이끌어 온 <br>
+                        정통성과 세계적인 기술력, <br>
+                        커피전문가의 노하우로 <br>
+                        고품질의 커피 본연의 맛과 향을 <br>
+                        즐길 수 있는 좋은 커피입니다.
+                    </p>
+                </div>
+                <div class="story_box">
+                    <img src="/static/img/about/story/story_img3.png" th:src="@{/img/about/story/story_img3.png}" alt="" class="story_img">
+                    <p>
+                        맥심은 일상 속 작은 휴식과 여유이며, <br>
+                        새로운 기운을 불어 넣어줍니다. <br>
+                        마음과 마음이 이어지는 순간 <br>
+                        맥심은 행복을 전해주는 <br>
+                        좋은 커피로 다가갑니다.
+                    </p>
+                </div>
+            </div>
+        </article>
+        <article>
+            <div class="history">
+                <div class="select_box">
+                    <ul class="since">
+                        <li>1980's</li>
+                        <li>1990's</li>
+                        <li>2000's</li>
+                        <li>2010's</li>
+                        <li>2020's</li>
+                    </ul>
+                    <div class="btn check"></div>
+                    <div class="btn_line"></div>
+                    <div class="btn"></div>
+                    <div class="btn_line"></div>
+                    <div class="btn"></div>
+                    <div class="btn_line"></div>
+                    <div class="btn"></div>
+                    <div class="btn_line"></div>
+                    <div class="btn"></div>
+                </div>
+                <div class="history_page on">
+                    <!--1980s-->
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img1.png" th:src="@{/img/about/history/history_img1.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>1987.11 <br>
+                                LONDON INTERNATIONAL ADVERTISING AWARDS <br>
+                                음료부분 입상 (명사 시리즈 TV-CM)</p>
+                            <p>1986.12 <br>
+                                미국에 수출 (수출실적 1,067만 달러 달성) <br>
+                                식품 수출 유공자 표창 (보건복지부 장관)</p>
+                            <p>1980.01 <br>
+                                맥심 생산 판매 개시</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="history_page">
+                    <!--1990s-->
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img2.png" th:src="@{/img/about/history/history_img2.png}" alt="history_img2">
+                        <div class="history_text">
+                            <p>1999.09 <br>
+                                맥심, 소비문화대전 소비자 만족상 수상</p>
+                            <p>1999.03 <br>
+                                맥심, 한국능률협회 선정 커피 부분 1위 브랜드</p>
+                            <p>1998.02 <br>
+                                맥심 유럽 수출</p>
+                            <p>1994.09 <br>
+                                맥심 콜롬비아, 브라질, 킬리만자로 발매</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="history_page">
+                    <!--2000s-->
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img3.png" th:src="@{/img/about/history/history_img3.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>2009.02 <br>
+                                맥심 카페 5종 발매</p>
+                            <p>2008.06 <br>
+                                맥심 T.O.P 출시</p>
+                            <p>2008.01 <br>
+                                맥심 4차 리스테이지 발매</p>
+                            <p>2007.12 <br>
+                                맥심 아라비카 100 마케팅 대상 수상</p>
+                            <p>2007.05 <br>
+                                맥심 라떼디토 헤럴드경제 히트 상품 선정</p>
+                            <p>2007.04 <br>
+                                맥심 라떼디토 커피믹스 출시</p>
+                            <p>2006.06 <br>
+                                맥심 블랙믹스 출시</p>
+                            <p>2007.03 <br>
+                                맥심 아라비카 100 출시 맥심 광고 "영원한 사랑"편 <br>
+                                좋은 광고상(TV부문) 수상</p>
+                            <p>2006.04 <br>
+                                맥심 웰빙 1/2칼로리 커피믹스 출시</p>
+                        </div>
+                    </div>
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img4.png" th:src="@{/img/about/history/history_img4.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>2004.04 <br>
+                                맥심 3차 리스테이지 발매</p>
+                            <p>2003.07 <br>
+                                제5회 여성소비자가 뽑은 베스트 브랜드 대상 수상</p>
+                            <p>2002.07 <br>
+                                제4회 여성소비자가 뽑은 참 건강한 세상 대상 수상</p>
+                            <p>2001.03 <br>
+                                맥심커피 대한민국 파워브랜드 1위</p>
+                            <p>2000.05 <br>
+                                맥심 2차 리스테이지 발매</p>
+                            <p>2000.03 <br>
+                                맥심, 2년 연속 한국능률협회 선정 커피부분 1위 브랜드</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="history_page">
+                    <!--2010s-->
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img6.png" th:src="@{/img/about/history/history_img6.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>2019.07 <br>
+                                카누 비치카페 오픈</p>
+                            <p>2019.04 <br>
+                                맥심 원두커피 8종 출시 <br>
+                                티오피 심플리스무스 로스티 2종 출시</p>
+                            <p>2018.03 <br>
+                                맥심 부드러운 블랙 리뉴얼 <br>
+                                카누 스프링 블렌드 아메리카노 한정판 출시</p>
+                            <p>2017.11 <br>
+                                모카골드 심플라떼 출시 <br>
+                                맥심 티오피 심플리스무스 크리스마스 에디션 출시 <br>
+                                카누 크리스마스 블렌드 출시</p>
+                            <p>2017.10 <br>
+                                카누 더블샷라떼 출시 <br>
+                                제 6차 리스테이지 실시</p>
+                            <p>2017.07 <br>
+                                T.O.P CUP 출시</p>
+                            <p>2017.05 <br>
+                                모카골드 라이트 출시 <br>
+                                모카 사진관 오픈 <br>
+                                T.O.P심플리스무스 출시</p>
+                            <p>2017.01 <br>
+                                카누 라떼 출시</p>
+                            <p>2016.04 <br>
+                                모카책방 오픈</p>
+                        </div>
+                    </div>
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img5.png" th:src="@{/img/about/history/history_img5.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>2015.10 <br>
+                                모카다방 오픈</p>
+                            <p>2014.10 <br>
+                                카누 디카페인 출시</p>
+                            <p>2013.10 <br>
+                                맥심 5차 리스테이지 발매</p>
+                            <p>2013.08 <br>
+                                카누 2013 아시아 마케팅 효율성 페스티벌(FAME) 최고상 수상</p>
+                            <p>2012.03 <br>
+                                제4회 여성소비자가 뽑은 참 건강한 세상 대상 수상</p>
+                            <p>2012.02 <br>
+                                타시모 출시</p>
+                            <p>2011.10 <br>
+                                맥심 KANU 출시</p>
+                            <p>2011.01 <br>
+                                맥심 그랑누아 발매</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="history_page">
+                    <!--2020s-->
+                    <div class="history_box">
+                        <img src="/static/img/about/history/history_img7.png" th:src="@{/img/about/history/history_img7.png}" alt="history_img">
+                        <div class="history_text">
+                            <p>2022.02 <br>
+                                맥심 카누 라이트 로스트 아메리카노 출시</p>
+                            <p>2021.11 <br>
+                                맥심 카누 트리플샷 라떼, 너티 카라멜 라떼 2종 출시</p>
+                            <p>2021.08 <br>
+                                맥심 슈프림골드 출시 <br>
+                                맥심 티오피 심플리스무스 플라워 피니시 2종 출시</p>
+                            <p>2021.05 <br>
+                                맥심 티오피 스모키 2종 출시</p>
+                            <p>2021.04 <br>
+                                맥심 카누 싱글 오리진 2종 한정판 출시</p>
+                            <p>2020.11 <br>
+                                맥심 카누 돌체라떼, 민트초코라떼 2종 출시 <br>
+                                맥심 카누 윈터 블렌드 한정판 출시</p>
+                            <p>2020.09 <br>
+                                맥심 커피믹스 행복 에디션 출시</p>
+                            <p>2020.06 <br>
+                                맥심 티오피 캔커피 패키지 디자인 리뉴얼</p>
+                            <p>2020.05 <br>
+                                여름 한정판 맥심 카누 아이스 2종 출시 <br>
+                                맥심 티오피 너티 카라멜 에스프레소 라떼 출시</p>
+                            <p>2020.04 <br>
+                                맥심 카누 시그니처 미니 출시 <br>
+                                맥심 커피믹스 레트로 에디션 출시</p>
+                            <p>2020.03 <br>
+                                맥심X무민 스페셜 패키지 출시 <br>
+                                맥심 싱글오리진 에티오피아 예가체프 코체레 한정판 출시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <div class="slogan">
+                <ul class="fade">
+                    <li class="on">
+                        <div class="slogan_text">
+                            <h3><span>좋은 원두</span> 좋은 커피 맥심</h3>
+                            <p>고급 아라비카 원두와 맥심만의 공법으로 <br>
+                                맥심이 더 맛있어졌습니다. <br>
+                                세상의 모든 순간이 더 행복해지도록 <br>
+                                맥심이 좋은 커피로 다가갑니다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="slogan_text">
+                            <h3>커피의 가장 <span>살아있는 향</span>을 만나다.</h3>
+                            <p>커피의 맛을 깨우는 산미, 머금을 때 느껴지는 깊은 풍미,<br>
+                                원두 그대로의 맛과 향을 전하기 위해<br>
+                                고급 아라비카 원두의 비율을 80%로 높였습니다. <br>
+                                최상급의 원두만을 선별하는 맥심만의 원두 등급으로 <br>
+                                고품질의 원두만을 고집합니다.</p>
+                        </div>
+                        <div class="sub_text">
+                                <h5>※ 아라비카 원두</h5>
+                                <p>
+                                    산미와 풍미가 뛰어나 원두커피로 사용되는 고급원두입니다. <br>
+                                    고산지대에서 재배되고 콜롬비아와 브라질, <br>
+                                    코스타리카, 케냐, 탄자니아 등에서 생산됩니다.
+                                </p>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="slogan_text">
+                            <h3>커피의 가장 <span>완벽한 맛</span>을 완성하다.</h3>
+                            <p>맥심의 기술력 바탕에는 산지 원두의 살아있는 맛과 향을 <br>
+                                고스란히 전하고자 하는 철학이 담겨있습니다. <br>
+                                최적화된 로스팅 기술과 추출 공법, 맥심의 커피전문가들이 <br>
+                                찾아낸 향 회수 기술로 커피 본연의 맛과 향을 지켜가고 있습니다.</p>
+                        </div>
+                        <div class="sub_text">
+                                <h5>01 APEX 추출공법</h5>
+                                <p>저온, 단시간 추출공법 적용</p>
+                                <h5>02 프로파일 로스팅(Profile Roasting)</h5>
+                                <p>각 원두 종류 특성에 알맞은 선별적 Roasting 공법 적용</p>
+                                <h5>03 RAP 공법(Refined Aroma Process)</h5>
+                                <p>볶은 원두에서 직접 원두커피향 회수 <br>
+                                    저온 추출액(에스프레소 추출)에서만 선별적 향 회수</p>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="../static/css/product.css" th:href="@{/css/product.css}">
+    <script defer src="/static/js/product.js" th:src="@{/js/product.js}"></script>
+</head>
+
+<body>
+    <header class="padding_lr_300">
+        <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+        <label id="hambuger">
+            <input type="checkbox">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    <nav class="menu_on">
+        <ul class="menu">
+            <li><a href='about.html' th:href="@{about}">ABOUT MAXIM</a></li>
+            <li><a href='product.html' th:href="@{product}">PRODUCT</a></li>
+            <li><a href='news.html' th:href="@{news}">NEWS & MEDIA</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h1>PRODUCT</h1>
+        <div class="line"></div>
+        <ul class="submenu">
+            <li class="select" th:name="maxim">MAXIM</li>
+            <li th:name="kanu">KANU</li>
+            <li th:name="top">T.O.P</li>
+        </ul>
+        <article>
+            <div class="product_slide">
+                <ul class="slides">
+                </ul>
+                <p class="controller">
+                    <span class="prev">&lang;</span>
+                    <span class="next">&rang;</span>
+                </p>
+            </div>
+            <div class="product">
+<!--                <img src="/static/img/product/Maxim/1.png" th:src="@{/img/product/Maxim/1.png}" alt="maxim_product_img1">-->
+<!--                <div class="product_text">-->
+<!--                    <h2>맥심 모카골드 마일드</h2>-->
+<!--                    <p>-->
+<!--                        맥심 모카골드 마일드는 고급 마일드 커피원두를 마일드 로스팅 공법으로 볶아 순하고 감미로운 맛과 향을 느낄 수 있는 제품으로 아침에 잠자리에서 일어나 부담없이 마실 수 있는 부드러운 커피의 대명사입니다. 진정한 부드러움을 느껴보세요.-->
+<!--                    </p>-->
+<!--                </div>-->
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>
