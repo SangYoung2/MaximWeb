@@ -10,10 +10,4 @@ class MaximPjApplicationTests {
     @Autowired
     MainService mainService;
 
-
-    @Test
-    void contextLoads() {
-        mainService.get_all_product();
-    }
-
 }

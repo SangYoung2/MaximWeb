@@ -242,6 +242,11 @@ li.select {
     transition: left 0.5s ease-out;
 }
 
+.slides.off {
+    transition: none;
+
+}
+
 .slides li:first-child {
     margin-left: 50px;
 }
@@ -289,12 +294,13 @@ article {
 
 .product {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .product > img {
-    width: 400px;
+    max-width: 25rem;
+    margin-right: 7.5rem;
 }
 
 .product_text {
@@ -302,7 +308,16 @@ article {
 }
 
 .product_text > h2 {
+    font-family: noto_medium;
     margin-bottom: 2rem;
     font-size: 2rem;
+    word-break: keep-all;
+}
+
+.product_text > p {
+    font-family: noto_light;
+    line-height: 1.125rem;
+    letter-spacing: -1px;
+    word-break: keep-all;
 }
 
