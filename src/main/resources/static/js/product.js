@@ -13,7 +13,7 @@ input.addEventListener('click', () => {
     }
 })
 
-maxim_product_get(0);
+product_list_get();
 
 // 제품 슬라이드 효과
 let slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
@@ -24,22 +24,42 @@ const prev = document.querySelector('.prev'); //이전 버튼
 const next = document.querySelector('.next'); //다음 버튼
 const slideWidth = 200; //한개의 슬라이드 넓이
 const slideMargin = 100; //슬라이드간의 margin 값
+const slideSize = (slideWidth + slideMargin)
 
 //전체 슬라이드 컨테이너 넓이 설정
-slides.style.width = (slideWidth + slideMargin) * (slideCount) + 'px';
+slides.style.width = ((slideSize * slideCount) - slideSize * 3) + 'px';
 let maxCurrentIndex = (slideCount % 3) === 0 ? ((slideCount / 3) - 1) : Math.trunc(slideCount / 3);
+let slideRun = true;
 
-function moveSlide(num) {
-    slides.style.left = -num * 900 + 'px';
-    currentIdx = num;
+function prevSlide(num) {
+    if (slideRun){
+        slideRun = false;
+        slides.style.left = -num * (slideSize * 3) + 'px';
+        currentIdx = num;
+        setTimeout(function (){slideRun = true}, 500);
+    }
+}
+
+function nextSlide(num) {
+    if (slideRun){
+        slideRun = false;
+        if((slideCount % 3) !== 0 && currentIdx === maxCurrentIndex - 1){
+            console.log(((slideSize * 3) + ((slideSize) * (slideCount % 3))))
+            slides.style.left = -(((num-1) * (slideSize * 3)) + ((slideSize) * (slideCount % 3))) + 'px';
+        }
+        else {
+            slides.style.left = -num * (slideSize * 3) + 'px';
+        }
+        currentIdx = num;
+        setTimeout(function (){slideRun = true}, 500);
+    }
 }
 
 prev.addEventListener('click', function () {
     /*첫 번째 슬라이드로 표시 됐을때는
     이전 버튼 눌러도 아무런 반응 없게 하기 위해
     currentIdx !==0일때만 moveSlide 함수 불러옴 */
-
-    if (currentIdx !== 0) moveSlide(currentIdx - 1);
+    if (currentIdx !== 0) prevSlide(currentIdx - 1);
 });
 
 next.addEventListener('click', function () {
@@ -48,129 +68,111 @@ next.addEventListener('click', function () {
     currentIdx !==slideCount - 1 일때만
     moveSlide 함수 불러옴 */
     if (currentIdx !== maxCurrentIndex) {
-        moveSlide(currentIdx + 1);
+        nextSlide(currentIdx + 1);
     }
 });
 
 // product 클릭시 아래 제품 설명이 바뀌는 효과
 const brandMenu = document.querySelectorAll('.submenu li')
-let brandName = document.querySelector('.submenu li.select')
-const products = document.querySelector('.product');
-const productImg = products.querySelector('img');
-const productName = products.querySelector('h2');
-const productText = products.querySelector('p');
+let brandName = document.querySelector('.submenu li.select').getAttribute('name')
+const product = document.querySelector('.product');
+let productImg = product.querySelector('img');
+let productName = product.querySelector("h2");
+let productInfo = product.querySelector('p');
 
-console.log(products);
-
-[...brandMenu].forEach((x, index) => {
+[...brandMenu].forEach(x => {
     x.onclick = () => {
-        [...brandMenu].forEach(x=>{x.classList.remove('select')});
-        x.classList.add('select')
-        maxim_product_get(index);
-    }
-})
-
-
-function maxim_product_get(e){
-    const request = new XMLHttpRequest();
-    request.open('GET', '/js/product.json')
-    request.responseType = "json";
-    request.send();
-    request.onload = () => {
-        const data = request.response
-        switch (e){
-            case 0:
-                create_maxim_product_list(data.maxim);
-                break;
-
-            case 1:
-                create_kanu_product_list(data.kanu)
-                break;
-
-            case 2:
-                create_top_product_list(data.top)
-                break;
+        if(!x.classList.contains('select')){
+            slides.classList.add('off');
+            [...brandMenu].forEach(x=>{x.classList.remove('select')});
+            x.classList.add('select')
+            product_list_get();
+            setTimeout(function (){slides.classList.remove('off');}, 500)
         }
-        reset_slide();
-    };
-}
-
-function create_maxim_product_list(e){
-    slides.innerHTML = '';
-    products.innerHTML = '';
-    for (const data of e) {
-        slides.insertAdjacentHTML('beforeend', '' +
-            `<li><img src="/img/product/maxim/${data.no}.png" alt="maxim_product_img${data.no}"></li>`)
     }
-    products.insertAdjacentHTML('beforeend', '' +
-        `                <img src="/img/product/Maxim/${e[0].no}.png" alt="maxim_product_img${e[0].no}">\n` +
-        '                <div class="product_text">\n' +
-        `                    <h2>${e[0].name}</h2>\n` +
-        '                    <p>\n' +
-        `                      ${e[0].value}\n` +
-        '                    </p>\n' +
-        '                </div>')
-
-}
-
-function create_kanu_product_list(e){
-    slides.innerHTML = '';
-    products.innerHTML = '';
-    for (const data of e) {
-        slides.insertAdjacentHTML('beforeend', '' +
-            `<li><img src="/img/product/kanu/${data.no}.png" alt="maxim_product_img${data.no}"></li>`)
-    }
-    products.insertAdjacentHTML('beforeend', '' +
-        `                <img src="/img/product/kanu/${e[0].no}.png" alt="maxim_product_img${e[0].no}">\n` +
-        '                <div class="product_text">\n' +
-        `                    <h2>${e[0].name}</h2>\n` +
-        '                    <p>\n' +
-        `                      ${e[0].value}\n` +
-        '                    </p>\n' +
-        '                </div>')
-}
-
-function create_top_product_list(e){
-    slides.innerHTML = '';
-    products.innerHTML = '';
-    for (const data of e) {
-        slides.insertAdjacentHTML('beforeend', '' +
-            `<li><img src="/img/product/top/${data.no}.png" alt="maxim_product_img${data.no}"></li>`)
-    }
-    products.insertAdjacentHTML('beforeend', '' +
-        `                <img src="/img/product/top/${e[0].no}.png" alt="maxim_product_img${e[0].no}">\n` +
-        '                <div class="product_text">\n' +
-        `                    <h2>${e[0].name}</h2>\n` +
-        '                    <p>\n' +
-        `                      ${e[0].value}\n` +
-        '                    </p>\n' +
-        '                </div>')
-}
+});
 
 function reset_slide(){
     slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
     slideImg = document.querySelectorAll('.slides li'); //모든 슬라이드들
     slideCount = slideImg.length; // 슬라이드 개수
-    slides.style.width = (slideWidth + slideMargin) * (slideCount) + 'px';
+    slides.style.width = ((slideSize * slideCount) - slideSize * 3) + 'px';
     maxCurrentIndex = (slideCount % 3) === 0 ? ((slideCount / 3) - 1) : Math.trunc(slideCount / 3);
     slides.style.left = '0';
     currentIdx = 0;
-    brandName = document.querySelector('.submenu li.select')
-    console.log(brandName.getAttribute('name'));
+    productImg = product.querySelector('img')
+    productName = product.querySelector("h2")
+    productInfo = product.querySelector('p')
 }
 
-// console.log(products);
-[...slideImg].forEach((x, index) => {
+function product_list_get(){
     const request = new XMLHttpRequest();
     request.open('GET', '/js/product.json')
     request.responseType = "json";
     request.send();
     request.onload = () => {
         const data = request.response
-        x.onclick = () => {
-            productImg.setAttribute('src', `/static/img/product/${brandName}/${data.no}.png`)
-            productName.innerHTML = data.maxim[index].name;
-            productText.innerHTML = data.maxim[index].value;
-        }
+        create_product_list(data)
+        reset_slide();
+        create_product_info(data);
     };
-})
+}
+
+function create_product_info(e){
+    switch (brandName){
+        case 'maxim':
+            e = e.maxim
+            break;
+
+        case 'kanu':
+            e = e.kanu
+            break;
+
+        case 'top':
+            e = e.top
+            break;
+    }
+    [...slideImg].forEach((x,index) => {
+        productImg = product.querySelector('img')
+        productName = product.querySelector("h2")
+        productInfo = product.querySelector('p')
+
+        x.onclick = () => {
+            productImg.setAttribute('src', `/img/product/${brandName}/${e[index].no}.png` )
+            productImg.setAttribute('alt', `"${brandName}_product_img${e[index].no}"` )
+            productName.innerText = e[index].name;
+            productInfo.innerText = e[index].value;
+        }
+    });
+}
+
+function create_product_list(e){
+    brandName = document.querySelector('.submenu li.select').getAttribute('name');
+    slides.innerHTML = '';
+    switch (brandName){
+        case 'maxim':
+            e = e.maxim
+            break;
+
+        case 'kanu':
+            e = e.kanu
+            break;
+
+        case 'top':
+            e = e.top
+            break;
+    }
+    for (const data of e) {
+        slides.insertAdjacentHTML('beforeend', '' +
+            `<li><img src="/img/product/${brandName}/${data.no}.png" alt="${brandName}_product_img${data.no}"></li>`)
+    }
+    productImg.setAttribute('src', `/img/product/${brandName}/${e[0].no}.png` )
+    productImg.setAttribute('alt', `"${brandName}_product_img${e[0].no}"` )
+    productName.innerText = e[0].name;
+    productInfo.innerText = e[0].value;
+}
+
+
+
+
+
