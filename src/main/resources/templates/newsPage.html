@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="/static/css/newsPage.css" th:href="@{/css/newsPage.css}">
+    <script src="/static/js/newsPage.js" th:src="@{/js/newsPage.js}" defer></script>
+</head>
+<script th:inline="javascript">
+    let a = [[${num}]];
+    console.log(a);
+</script>
+<body>
+    <header class="padding_lr_300">
+        <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+        <label id="hambuger">
+            <input type="checkbox">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    <nav class="menu_on">
+        <ul class="menu">
+            <li><a href='about.html' th:href="@{about}">ABOUT MAXIM</a></li>
+            <li><a href='product.html' th:href="@{product}">PRODUCT</a></li>
+            <li><a href='news.html' th:href="@{news}">NEWS & MEDIA</a></li>
+        </ul>
+    </nav>
+    <span class="news_no" th:text="${num}" hidden></span>
+    <section>
+        <article>
+            <h1></h1>
+        </article>
+    </section>
+</body>
+</html>

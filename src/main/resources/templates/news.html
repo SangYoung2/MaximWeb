@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>NEWS&MEDIA</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="../static/css/news.css" th:href="@{/css/news.css}">
+    <script src="/static/js/news.js" th:src="@{/js/news.js}" defer></script>
+</head>
+
+<body>
+<header class="padding_lr_300">
+    <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+    <label id="hambuger">
+        <input type="checkbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+</header>
+<nav class="menu_on">
+    <ul class="menu">
+        <li><a href='about.html' th:href="@{about}">ABOUT MAXIM</a></li>
+        <li><a href='product.html' th:href="@{product}">PRODUCT</a></li>
+        <li><a href='news.html' th:href="@{news}">NEWS & MEDIA</a></li>
+    </ul>
+</nav>
+<section>
+    <h1>NEWS&MEDIA</h1>
+    <div class="line"></div>
+    <ul class="submenu">
+        <li class="select" th:name="news">NEWS</li>
+        <li th:name="media">MEDIA</li>
+    </ul>
+    <article>
+        <div class="contents_box">
+        </div>
+        <div class="index">
+        </div>
+    </article>
+</section>
+</body>
+</html>

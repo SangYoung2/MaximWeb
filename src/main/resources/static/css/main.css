@@ -493,10 +493,8 @@ article{
 }
 
 .news_card {
-    max-width: 17.5rem;
-    max-height: 20rem;
-    min-width: 17.5rem;
-    min-height: 20rem;
+    width: 17.5rem;
+    height: 17.5rem;
     background-color: white;
     cursor: pointer;
     transition-duration: 0.1s;
