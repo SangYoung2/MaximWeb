@@ -2,6 +2,7 @@
 const input = document.querySelector('#hambuger input')
 const main_menu = document.querySelector('.menu_on');
 const header = document.querySelector('header')
+
 input.addEventListener('click', () => {
     main_menu.classList.toggle('active');
     if (main_menu.classList.contains('active') === true) {
@@ -80,11 +81,11 @@ let productImg = product.querySelector('img');
 let productName = product.querySelector("h2");
 let productInfo = product.querySelector('p');
 
-[...brandMenu].forEach(x => {
+brandMenu.forEach(x => {
     x.onclick = () => {
         if(!x.classList.contains('select')){
             slides.classList.add('off');
-            [...brandMenu].forEach(x=>{x.classList.remove('select')});
+            brandMenu.forEach(x=>{x.classList.remove('select')});
             x.classList.add('select')
             product_list_get();
             setTimeout(function (){slides.classList.remove('off');}, 500)

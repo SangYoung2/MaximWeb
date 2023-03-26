@@ -31,8 +31,8 @@
     <h1>NEWS&MEDIA</h1>
     <div class="line"></div>
     <ul class="submenu">
-        <li class="select" th:name="news">NEWS</li>
-        <li th:name="media">MEDIA</li>
+        <li class="select" th:name="news" th:onclick="contents_list_get(this.getAttribute('name'))">NEWS</li>
+        <li th:name="media" th:onclick="contents_list_get(this.getAttribute('name'))">MEDIA</li>
     </ul>
     <article>
         <div class="contents_box">
