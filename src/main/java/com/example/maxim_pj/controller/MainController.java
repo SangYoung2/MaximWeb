@@ -44,7 +44,7 @@ public class MainController {
             @PathVariable int num,
             Model model
     ){
-        model.addAttribute("num", num);
+        model.addAttribute("num", (num-1));
         return "newsPage";
     }
 }
