@@ -47,4 +47,9 @@ public class MainController {
         model.addAttribute("num", (num-1));
         return "newsPage";
     }
+
+    @GetMapping("/media/{num}")
+    public String mediaPage(){
+        return null;
+    }
 }

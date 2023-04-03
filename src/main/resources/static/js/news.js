@@ -31,7 +31,16 @@ function contents_list_get(index=1){
     request.responseType = "json";
     request.send();
     request.onload = () => {
-        const response = request.response
+        let response = request.response
+            switch (ContentName) {
+            case 'news':
+                response = response.news.reverse()
+                break;
+            case 'media':
+                response = response.media.reverse()
+                break;
+            }
+        console.log(response)
         setting(response)
         create_content_list(response, index)
         create_index_num();
@@ -52,48 +61,38 @@ SubMenu.forEach(x => {
 
 
 function setting(e){
-    switch (ContentName) {
-        case 'news':
-            e = e.news
-            break;
-        case 'media':
-            e = e.media
-            break;
-    }
     contentsLength = Math.trunc(((e.length)+1) % 12) === 0 ? Math.trunc(e.length / 12) : Math.trunc(e.length / 12) + 1;
 }
+
 function create_content_list(e, index){
-    switch (ContentName) {
-        case 'news':
-            e = e.news
-            break;
-        case 'media':
-            e = e.media
-            break;
-    }
     let x = index === 1 ?  0 : ((index-1)*12)-1;
     let y = index !== contentsLength ? (x + 12) : (x + Math.trunc(((e.length)+1) % 12));
     contentsBox.innerHTML = '';
     if(ContentName === 'news'){
         for (let i = x; i < y; i++) {
-            contentsBox.insertAdjacentHTML('beforeend', '' +
-                `<a href="/newsPage/${e[i].no}" class="card">\n` +
-                `    <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_thumbnail">\n` +
-                '        <div class="info">\n' +
-                `            <h3>${e[i].title}</h3>\n` +
-                `            <span>${e[i].date}</span>\n` +
-                '        </div>\n' +
-                '</a>')
+            contentsBox.insertAdjacentHTML('beforeend',
+            `<a href="/newsPage/${e[i].no}" class="card">
+                    <div class="thumbnail">
+                        <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_thumbnail">
+                    </div>
+                    <div class="info">
+                        <h3>${e[i].title}</h3>
+                        <span>${e[i].date}</span>
+                    </div>
+                </a>`)
         }
     }else {
         for (let i = x; i < y; i++) {
-            contentsBox.insertAdjacentHTML('beforeend', '' +
-                `<a href="/newsPage/${e[i].no}" class="card">\n` +
-                `    <img src="/img/media/thumbnail/${e[i].no}.jpg" alt="media_thumbnail">\n` +
-                '        <div class="info">\n' +
-                `            <h3>${e[i].title}</h3>\n` +
-                '        </div>\n' +
-                '</a>')
+            contentsBox.insertAdjacentHTML('beforeend',
+            `<a href="/media/${e[i].no}" class="card">
+                    <div class="thumbnail">
+                        <img src="/img/media/thumbnail/${e[i].no}.jpg" alt="media_thumbnail">
+                        <span class="material-symbols-outlined">play_circle</span>
+                    </div>
+                    <div class="info">
+                        <h3>${e[i].title}</h3>
+                    </div>
+                </a>`)
         }
     }
 }
