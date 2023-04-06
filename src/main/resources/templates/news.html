@@ -12,14 +12,16 @@
 </head>
 
 <body>
-<header class="padding_lr_300">
-    <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
-    <label id="hambuger">
-        <input type="checkbox">
-        <div></div>
-        <div></div>
-        <div></div>
-    </label>
+<header>
+    <div class="header_wrap">
+        <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+        <label id="hambuger">
+            <input type="checkbox">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </div>
 </header>
 <nav class="menu_on">
     <ul class="menu">
@@ -35,11 +37,7 @@
         <li class="select" th:name="news" th:onclick="contents_list_get(this.getAttribute('name'))">NEWS</li>
         <li th:name="media" th:onclick="contents_list_get(this.getAttribute('name'))">MEDIA</li>
     </ul>
-    <article>
-        <div class="contents_box">
-        </div>
-        <div class="index">
-        </div>
+    <article id="contents_container">
     </article>
 </section>
 </body>

@@ -13,22 +13,23 @@ input.addEventListener('click', () => {
     }
 })
 
-const newsNo = document.querySelector('.news_no').innerHTML;
+const newsNo = document.getElementById('news_no').value
 const news = document.querySelector('.news')
+
+console.log(newsNo)
 
 news_content_get(newsNo);
 
 function news_content_get(no){
-    const request = new XMLHttpRequest();
-    request.open('GET', '/js/news.json')
-    request.responseType = "json";
-    request.send();
-    request.onload = () => {
-        const data = request.response;
-        console.log(data.news[no]);
-        create_news_content(data.news[no]);
-    };
+    fetch("/js/news&media.json")
+        .then(value => value.json())
+        .then(value => {
+            create_news_content(value.news[no])
+        })
+        .catch(reason => console.log(reason))
 }
+
+
 
 function create_news_content(e){
     news.innerHTML = '';
@@ -46,5 +47,4 @@ function create_news_content(e){
         leadBox.insertAdjacentHTML('beforeend','' +
             `<h4 class="lead">${e.lead[i]}</h4>\n`)
     }
-
 }
