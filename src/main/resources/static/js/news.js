@@ -20,7 +20,23 @@ input.addEventListener('click', () => {
     }
 })
 
-contents_list_get();
+const urlParams = new URL(location.href).searchParams;
+const getNo = parseInt(urlParams.get('num'))
+const getCategory = urlParams.get('category')
+
+if(getCategory === 'media') {
+    SubMenu.forEach(x => {
+        x.classList.remove('select');
+    })
+    SubMenu.item(1).classList.add('select')
+}
+
+if(getNo >= 0) {
+    get_detail_content(getNo)
+} else {
+    contents_list_get();
+}
+
 
 // content 생성 기능
 let contentsBox = document.querySelector('.contents_box')
@@ -87,7 +103,7 @@ function create_content_list(e, index){
     if(ContentName === 'news'){
         for (let i = x; i < y; i++) {
             contentsBox.insertAdjacentHTML('beforeend',
-            `<a href="#" class="card" onclick="get_detail_content(${e[i].no-1})">
+            `<a href="/news?category=news&num=${e[i].no - 1}" class="card">
                     <div class="thumbnail">
                         <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_thumbnail">
                     </div>
@@ -100,7 +116,7 @@ function create_content_list(e, index){
     }else {
         for (let i = x; i < y; i++) {
             contentsBox.insertAdjacentHTML('beforeend',
-            `<a class="card" onclick="get_detail_content(${e[i].no-1})">
+            `<a href="/media?category=media&num=${e[i].no - 1}" class="card")">
                     <div class="thumbnail">
                         <img src="/img/media/thumbnail/${e[i].no}.jpg" alt="media_thumbnail">
                         <span class="material-symbols-outlined">play_circle</span>
@@ -193,6 +209,8 @@ function page_change(e){
 
 function get_detail_content(no){
     window.scrollTo({top:0})
+    ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+
     fetch("/js/news&media.json")
         .then(value => value.json())
         .then(value => {
@@ -269,6 +287,8 @@ function create_detail_content(e, no){
     }
 
     let PageControlWrap = document.querySelector('.page_control_wrap')
+    console.log(no)
+
 
     if(e.length-1 === no){
         PageControlWrap.insertAdjacentHTML('beforeend',
@@ -280,7 +300,7 @@ function create_detail_content(e, no){
                         <hr>
                         <div class="prev_page">
                             <span>이전 페이지</span>
-                            <a onclick="get_detail_content(${no-1})"><h4>${e[no-1].title}</h4></a>
+                            <a href="/news?category=${ContentName}&num=${no - 1}")"><h4>${e[no-1].title}</h4></a>
                         </div>
                     `)
     }else if(no === 0){
@@ -288,7 +308,7 @@ function create_detail_content(e, no){
             `
                         <div class="next_page">
                             <span>다음 페이지</span>
-                            <a onclick="get_detail_content(${no+1})"><h4>${e[no+1].title}</h4></a>
+                            <a href="/news?category=${ContentName}&num=${no + 1}"><h4>${e[no+1].title}</h4></a>
                         </div>
                         <hr>
                         <div class="prev_page">
@@ -302,12 +322,12 @@ function create_detail_content(e, no){
             `
                         <div class="next_page">
                             <span>다음 페이지</span>
-                            <a onclick="get_detail_content(${no+1})"><h4>${e[no+1].title}</h4></a>
+                            <a href="/news?category=${ContentName}&num=${no + 1}"><h4>${e[no+1].title}</h4></a>
                         </div>
                         <hr>
                         <div class="prev_page">
                             <span>이전 페이지</span>
-                            <a onclick="get_detail_content(${no-1})"><h4>${e[no-1].title}</h4></a>
+                            <a href="/news?category=${ContentName}&num=${no - 1}"><h4>${e[no-1].title}</h4></a>
                         </div>
                     `)
     }

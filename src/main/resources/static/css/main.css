@@ -145,12 +145,12 @@ header img {
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     z-index: 5;
-    transition-duration: 1s;
     transform: translateX(100%);
 }
 
 .menu_on.active {
     transform: translateX(0);
+    transition-duration: 1s;
 }
 
 .menu {
@@ -183,6 +183,7 @@ header img {
 /* ==== section CSS ====*/
 section {
     height: 100vh;
+    min-height: 970px;
     position: relative;
 }
 
@@ -369,6 +370,8 @@ article{
 
 /* 네번째 section css */
 .history {
+    width: 100%;
+    min-width: 1903px;
     display: flex;
     flex-direction: row;
 }
@@ -471,6 +474,7 @@ article{
 }
 
 .news_link {
+    width: 1303px;
     display: inline;
     margin-bottom: 3rem;
     color: #2c1a0b;
@@ -484,8 +488,9 @@ article{
 }
 
 .news_box {
-    width: 100%;
+    width: 1303px;
     height: 100%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -521,16 +526,25 @@ footer {
     height: 100vh;
     padding-top: 12.5rem;
     padding-bottom: 12.5rem;
-    display: flex;
-    flex-direction: column;
     background-image: url("/img/main/footer_bg.png"), url("/static/img/main/footer_bg.png");
     background-size: cover;
     font-family: noto_medium;
 }
 
+.footer_wrap {
+    width: 1303px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .footer_sub_menu_box, .brand_sns_box {
     display: flex;
     width: 100%;
+}
+
+.footer_sub_menu_box {
+    min-height: 426px;
 }
 
 .footer_sub_menu_box {

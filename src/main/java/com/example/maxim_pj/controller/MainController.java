@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,20 +38,26 @@ public class MainController {
     @GetMapping("/product")
     public void product(){};
 
-    @GetMapping("/news")
-    public void news(){}
+//    @GetMapping("/news")
+//    public void get_news(){
+//        log.info("===== get_news =====");
+//    }
 
-    @GetMapping("/newsPage/{num}")
-    public String newsPage(
-            @PathVariable int num,
-            Model model
-    ){
-        model.addAttribute("num", (num-1));
-        return "newsPage";
+    @GetMapping("/news")
+    public String get_detail_news(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) int num){
+
+        log.info("==== get_detail_news ====");
+        return "news";
     }
 
-    @GetMapping("/media/{num}")
-    public String mediaPage(){
-        return null;
+    @GetMapping("/media")
+    public String get_detail_media(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) int num){
+
+        log.info("==== get_detail_media ====");
+        return "news";
     }
 }

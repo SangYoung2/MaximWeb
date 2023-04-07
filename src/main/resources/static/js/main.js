@@ -54,6 +54,28 @@ let historyPageOn = true; // history section 의 기능이 제대로 동작 되�
     }
 })
 
+/*===== newsSection JS =====*/
+const newsBox = document.querySelector('.news_box')
+
+get_news()
+
+function get_news(){
+    fetch("js/news&media.json")
+        .then(response => response.json())
+        .then(value => create_news(value.news.reverse()))
+        .catch(reason => console.log(reason))
+}
 
 
-
+function create_news(e){
+    newsBox.innerHTML = '';
+    for (let i = 0; i < 8; i++) {
+        newsBox.insertAdjacentHTML('beforeend',
+            `
+            <a href="/news/${e[i].no - 1}" class="news_card">
+                <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_img">
+                <h3>${e[i].title}</h3>
+            </a> 
+        `)
+    }
+}

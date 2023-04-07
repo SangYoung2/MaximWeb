@@ -225,38 +225,6 @@
             <article class="news padding_lr_300">
                 <h2>NEWS</h2>
                 <div class="news_box">
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img1.jpg" alt="">
-                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img2.jpg" alt="">
-                        <h3>동서식품, ‘맥심 커피믹스X미니언즈 스페셜 패키지’ 출시</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img3.jpg" alt="">
-                        <h3>동서식품, 맥심 플랜트서 라디오 팝업 스튜디오 진행</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img4.jpg" alt="">
-                        <h3>동서식품, 맥심 플랜트 오픈 4주년 기념 이벤트 진행</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img1.jpg" alt="">
-                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img2.jpg" alt="">
-                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img3.jpg" alt="">
-                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
-                    </a>
-                    <a href="#" th:href="@{/main}" class="news_card">
-                        <img src="/static/img/main/section05_news_img4.jpg" alt="">
-                        <h3>동서식품, 신제품 ‘맥심 티오피 미디엄 로스트’ 2종 출시</h3>
-                    </a>
                 </div>
                 <div class="news_link">
                     <a href="#">더 많은 기사 보러가기 > </a>
@@ -265,60 +233,62 @@
         </section>
     </main>
     <footer class="padding_lr_300">
-        <div class="footer_sub_menu_box">
-            <div class="sub_menu">
-                <a href="about.html" th:href="@{about}">ABOUT MAXIM</a>
-                <a href="product.html" th:href="@{product}">PRODUCT</a>
-                <a href="news.html" th:href="@{news}">NEWS & MEDIA</a>
-                <div>
-                    <p><ins>ADDRESS</ins></p>
-                    <p>[부평공장] 인천시 부평구 새벌로 55</p>
-                    <p>[서울사무소] 서울시 마포구 독막로324 (도화동,동서빌딩)</p>
+        <div class="footer_wrap">
+            <div class="footer_sub_menu_box">
+                <div class="sub_menu">
+                    <a href="about.html" th:href="@{about}">ABOUT MAXIM</a>
+                    <a href="product.html" th:href="@{product}">PRODUCT</a>
+                    <a href="news.html" th:href="@{news}">NEWS & MEDIA</a>
+                    <div>
+                        <p><ins>ADDRESS</ins></p>
+                        <p>[부평공장] 인천시 부평구 새벌로 55</p>
+                        <p>[서울사무소] 서울시 마포구 독막로324 (도화동,동서빌딩)</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">영상정보처리기기운영관리방침</a>
+                    <div>
+                        <p><ins>TEL</ins></p>
+                        <p>대표번호 1588-2233</p>
+                        <p>고객상담실 080-023-9114</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <a href="#">FAMILY SITE +</a>
                 </div>
             </div>
-            <div class="sub_menu">
-                <a href="#">개인정보처리방침</a>
-                <a href="#">이용약관</a>
-                <a href="#">영상정보처리기기운영관리방침</a>
-                <div>
-                    <p><ins>TEL</ins></p>
-                    <p>대표번호 1588-2233</p>
-                    <p>고객상담실 080-023-9114</p>
+            <div class="brand_sns_box">
+                <div class="sns">
+                    <p>Maxim</p>
+                    <div class="sns_icon">
+                        <a href="https://www.facebook.com/maximcoffeemix/" th:href="@{https://www.facebook.com/maximcoffeemix/}" target="_blank">
+                            <img src="/static/img/icon/facebook.png" th:src="@{/img/icon/facebook.png}" alt="facebook">
+                        </a>
+                        <a href="https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/" th:href="@{https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/}" target="_blank">
+                            <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="sub_menu">
-                <a href="#">FAMILY SITE +</a>
-            </div>
-        </div>
-        <div class="brand_sns_box">
-            <div class="sns">
-                <p>Maxim</p>
-                <div class="sns_icon">
-                    <a href="https://www.facebook.com/maximcoffeemix/" th:href="@{https://www.facebook.com/maximcoffeemix/}" target="_blank">
-                        <img src="/static/img/icon/facebook.png" th:src="@{/img/icon/facebook.png}" alt="facebook">
-                    </a>
-                    <a href="https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/" th:href="@{https://www.instagram.com/accounts/login/?next=/maxim_coffee_mix/}" target="_blank">
-                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
-                    </a>
+                <div class="sns">
+                    <p>KANU</p>
+                    <div class="sns_icon">
+                        <a href="http://www.maximkanu.co.kr/pc.asp" th:href="@{http://www.maximkanu.co.kr/pc.asp}" target="_blank">
+                            <img src="/static/img/icon/kanu.png" th:src="@{/img/icon/kanu.png}" alt="kanu">
+                        </a>
+                        <a href="https://www.instagram.com/kanucoffee.official/" th:href="@{https://www.instagram.com/kanucoffee.official/}" target="_blank">
+                            <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="sns">
-                <p>KANU</p>
-                <div class="sns_icon">
-                    <a href="http://www.maximkanu.co.kr/pc.asp" th:href="@{http://www.maximkanu.co.kr/pc.asp}" target="_blank">
-                        <img src="/static/img/icon/kanu.png" th:src="@{/img/icon/kanu.png}" alt="kanu">
-                    </a>
-                    <a href="https://www.instagram.com/kanucoffee.official/" th:href="@{https://www.instagram.com/kanucoffee.official/}" target="_blank">
-                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
-                    </a>
-                </div>
-            </div>
-            <div class="sns">
-                <p>T.O.P</p>
-                <div class="sns_icon">
-                    <a href="https://www.instagram.com/maxim_t.o.p/" th:href="@{https://www.instagram.com/maxim_t.o.p/}" target="_blank">
-                        <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
-                    </a>
+                <div class="sns">
+                    <p>T.O.P</p>
+                    <div class="sns_icon">
+                        <a href="https://www.instagram.com/maxim_t.o.p/" th:href="@{https://www.instagram.com/maxim_t.o.p/}" target="_blank">
+                            <img src="/static/img/icon/insta.png" th:src="@{/img/icon/insta.png}" alt="insta">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
