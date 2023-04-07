@@ -1,3 +1,4 @@
+/**/
 @font-face {
     src: url('../font/NotoSansKR-Bold.otf') format('opentype');
     font-family: 'noto_bold';
@@ -52,51 +53,29 @@
     font-weight: 100;
 }
 
+/**/
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
-    background: #faebd7;
-}
-
-header,
-section {
-    width: 100%;
-    padding: 0 300px;
     box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-a {
-    color: inherit;
-    display: block;
-}
-
-li {
-    display: inline-block;
-}
-
-h6 {
-    display: none;
-}
-
-hr {
-    color: black;
 }
 
 /*header style*/
 header {
     width: 100%;
     height: 95px;
-    padding-top: 20px;
+    padding:20px 300px 0 300px;
     position: fixed;
     z-index: 10;
     border: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header_wrap {
+    width: 100%;
+    min-width: 1320px;
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
@@ -145,17 +124,18 @@ header img {
 .menu_on {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     z-index: 5;
     transition-duration: 1s;
-    transform: translateX(100%);
+    opacity: 0;
 }
 
 .menu_on.active {
-    transform: translateX(0);
+    right: 0;
+    opacity: 1;
 }
 
 .menu {
@@ -183,65 +163,3 @@ header img {
     opacity: 1;
     border-bottom: 2px solid white;
 }
-
-/* 기사 부분 CSS*/
-section {
-    /*height: 100%;*/
-}
-
-.news {
-    width: 100%;
-    min-width: 100%;
-    height: 100%;
-    min-height: 100%;
-    padding: 3rem;
-    background-color: white;
-    margin-top: 95px;
-    margin-bottom: 100px;
-    color: black;
-}
-
-.title {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    word-break: keep-all;
-}
-
-.sub_title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    word-break: keep-all;
-}
-
-.img_box {
-    display: flex;
-    justify-content: center;
-}
-
-.news_img {
-   /*transform: translateX(50%);*/
-    margin: 5rem auto;
-}
-
-.lead_box {
-    margin-bottom: 2rem;
-}
-
-.lead {
-    font-size: 1.125rem;
-}
-
-.content {
-    font-size: 1rem;
-    letter-spacing: -0.5px;
-    line-height: 1.125rem;
-}
-
-.since {
-    font-size: 1rem;
-    color: #909090;
-    text-align: right;
-}
-

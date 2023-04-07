@@ -1,14 +1,3 @@
-//햄버거메뉴 클릭시 효과
-const input = document.querySelector('#hambuger input')
-const main_menu = document.querySelector('.menu_on');
-const header = document.querySelector('header')
-
-input.addEventListener('click', () => {
-    main_menu.classList.toggle('active');
-    if (main_menu.classList.contains('active') === true) {header.style.background = 'none';}
-    else {header.style.background = '';}
-})
-
 // 메뉴 클릭시 세부 메뉴 변경
 const subMenu = document.querySelectorAll('.submenu > li');
 const article = document.getElementsByTagName('article');

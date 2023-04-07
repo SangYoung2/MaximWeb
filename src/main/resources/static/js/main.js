@@ -1,20 +1,3 @@
-// 스크롤 이벤트
-
-// hambuger 클릭 시 효과
-const input = document.querySelector('#hambuger input')
-const main_menu = document.querySelector('.menu_on');
-const header = document.querySelector('header')
-input.addEventListener('click', () => {
-    main_menu.classList.toggle('active');
-    if (main_menu.classList.contains('active') == true) {
-        header.style.background = 'none';
-
-    }
-    else {
-        header.style.background = '';
-    }
-})
-
 // ===== productSection JS =====
 const productInfo = document.getElementsByClassName('product_info');
 const productMenu = document.querySelectorAll('.product_menu > li');
@@ -72,7 +55,7 @@ function create_news(e){
     for (let i = 0; i < 8; i++) {
         newsBox.insertAdjacentHTML('beforeend',
             `
-            <a href="/news/${e[i].no - 1}" class="news_card">
+            <a href="/detail?category=news&num=${e[i].no - 1}" class="news_card">
                 <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_img">
                 <h3>${e[i].title}</h3>
             </a> 

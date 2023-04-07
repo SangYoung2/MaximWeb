@@ -38,26 +38,17 @@ public class MainController {
     @GetMapping("/product")
     public void product(){};
 
-//    @GetMapping("/news")
-//    public void get_news(){
-//        log.info("===== get_news =====");
-//    }
-
     @GetMapping("/news")
-    public String get_detail_news(
-            @RequestParam(required = false) String category,
-            @RequestParam(required = false) int num){
-
-        log.info("==== get_detail_news ====");
-        return "news";
+    public void get_news(
+            @RequestParam(required = false, defaultValue = "news") String category
+    ){
     }
 
-    @GetMapping("/media")
-    public String get_detail_media(
+    @GetMapping("/detail")
+    public String get_detail_content(
             @RequestParam(required = false) String category,
             @RequestParam(required = false) int num){
-
-        log.info("==== get_detail_media ====");
+        log.info("==== get_detail_content ====");
         return "news";
     }
 }

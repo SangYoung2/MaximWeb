@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>header</title>
+    <link rel="stylesheet" href="/static/css/header.css" th:href="@{/css/header.css}">
+    <script src="https://kit.fontawesome.com/8b1463211e.js" crossorigin="anonymous"></script>
+    <script src="/static/js/header.js" th:src="@{/js/header.js}" defer></script>
+</head>
+<body>
+    <header class="padding_lr_300" th:fragment="header">
+        <div class="header_wrap">
+            <a href="main.html" th:href="@{/main}"><img src="/static/img/main/Maxim_logo.png" th:src="@{/img/main/Maxim_logo.png}" alt="logo"></a>
+            <label id="hambuger">
+                <input type="checkbox">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </div>
+        <nav class="menu_on">
+            <ul class="menu">
+                <li><a href='about.html' th:href="@{/about}">ABOUT MAXIM</a></li>
+                <li><a href='product.html' th:href="@{/product}">PRODUCT</a></li>
+                <li><a href='news.html' th:href="@{/news?category=news}">NEWS & MEDIA</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

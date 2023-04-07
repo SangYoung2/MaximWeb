@@ -1,34 +1,20 @@
-// hambuger 클릭 시 효과
-const input = document.querySelector('#hambuger input');
-const main_menu = document.querySelector('.menu_on');
-
-const header = document.querySelector('header')
-
-const SubMenu = document.querySelector('.submenu').querySelectorAll('li')
-let ContentName = document.querySelector('.submenu li.select').getAttribute('name')
-
+const SubMenu = document.querySelectorAll('.submenu li')
 const ContentsContainer = document.getElementById('contents_container');
+let ContentName = "";
 
-input.addEventListener('click', () => {
-    main_menu.classList.toggle('active');
-    if (main_menu.classList.contains('active') === true) {
-        header.style.background = 'none';
-
-    }
-    else {
-        header.style.background = '';
-    }
-})
-
+// 파라미터값을 변수에 입력
 const urlParams = new URL(location.href).searchParams;
 const getNo = parseInt(urlParams.get('num'))
 const getCategory = urlParams.get('category')
 
-if(getCategory === 'media') {
-    SubMenu.forEach(x => {
-        x.classList.remove('select');
-    })
+if(getCategory === 'news') {
+    SubMenu.item(0).classList.add('select')
+    ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+    contents_list_get();
+} else {
     SubMenu.item(1).classList.add('select')
+    ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+    contents_list_get();
 }
 
 if(getNo >= 0) {
@@ -40,6 +26,7 @@ if(getNo >= 0) {
 
 // content 생성 기능
 let contentsBox = document.querySelector('.contents_box')
+let index = document.querySelector('.index')
 let indexNum = document.querySelectorAll('.num')
 let contentsLength = 0;
 let maxCurrentIndex = 0;
@@ -64,16 +51,16 @@ function contents_list_get(index=1){
         .catch(reason => console.log(reason))
 }
 
-SubMenu.forEach(x => {
-    x.onclick = () => {
-        SubMenu.forEach(x => {
-            x.classList.remove('select')
-        })
-        x.classList.add('select');
-        ContentName = document.querySelector('.submenu li.select').getAttribute('name');
-        contents_list_get()
-    }
-})
+// SubMenu.forEach(x => {
+//     x.onclick = () => {
+//         SubMenu.forEach(x => {
+//             x.classList.remove('select')
+//         })
+//         x.classList.add('select');
+//         ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+//         contents_list_get()
+//     }
+// })
 
 function setting(e){
     ContentsContainer.innerHTML = '';
@@ -103,7 +90,7 @@ function create_content_list(e, index){
     if(ContentName === 'news'){
         for (let i = x; i < y; i++) {
             contentsBox.insertAdjacentHTML('beforeend',
-            `<a href="/news?category=news&num=${e[i].no - 1}" class="card">
+            `<a href="/detail?category=news&num=${e[i].no - 1}" class="card">
                     <div class="thumbnail">
                         <img src="/img/news/thumbnail/${e[i].no}.jpg" alt="news_thumbnail">
                     </div>
@@ -116,7 +103,7 @@ function create_content_list(e, index){
     }else {
         for (let i = x; i < y; i++) {
             contentsBox.insertAdjacentHTML('beforeend',
-            `<a href="/media?category=media&num=${e[i].no - 1}" class="card")">
+            `<a href="/detail?category=media&num=${e[i].no - 1}" class="card")">
                     <div class="thumbnail">
                         <img src="/img/media/thumbnail/${e[i].no}.jpg" alt="media_thumbnail">
                         <span class="material-symbols-outlined">play_circle</span>
@@ -147,14 +134,12 @@ function create_index_num(){
     }
 }
 
-let prev = document.querySelector('.prev')
-let next = document.querySelector('.next')
 let slideSize = 60;
 let currentIdx = 0;
 let slideRun = true;
 
 function prevSlide(num) {
-    const index = document.querySelector('.index')
+    index = document.querySelector('.index')
     if (slideRun){
         slideRun = false;
         index.style.left = -num * (slideSize * 5) + 'px';
@@ -164,7 +149,7 @@ function prevSlide(num) {
 }
 
 function nextSlide(num) {
-    const index = document.querySelector('.index')
+    index = document.querySelector('.index')
     if (slideRun){
         slideRun = false;
         index.style.left = -num * (slideSize * 5) + 'px';
@@ -174,7 +159,6 @@ function nextSlide(num) {
 }
 
 function prevBtnClick(){
-    console.log("prev")
     /*첫 번째 슬라이드로 표시 됐을때는
     이전 버튼 눌러도 아무런 반응 없게 하기 위해
     currentIdx !==0일때만 moveSlide 함수 불러옴 */
@@ -182,7 +166,6 @@ function prevBtnClick(){
 }
 
 function nextBtnClick(){
-    console.log("next")
     /* 마지막 슬라이드로 표시 됐을때는
     다음 버튼 눌러도 아무런 반응 없게 하기 위해
     currentIdx !==slideCount - 1 일때만

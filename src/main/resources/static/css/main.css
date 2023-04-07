@@ -64,7 +64,6 @@ body {
     overflow-x: hidden;
 }
 
-header,
 main,
 section,
 footer {
@@ -84,101 +83,6 @@ button {
 a {
     color: inherit;
 }
-
-
-/* ==== header CSS ==== */
-header {
-    height: 6rem;
-    position: fixed;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-}
-
-header:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-header img {
-    cursor: pointer;
-}
-
-#hambuger {
-    cursor: pointer;
-}
-
-#hambuger div {
-    width: 30px;
-    height: 2px;
-    background: white;
-    margin-bottom: 10px;
-    transition-duration: 0.5s;
-}
-
-#hambuger input {
-    display: none;
-}
-
-#hambuger input:checked + div {
-    transform: translateY(12px) rotate(45deg);
-    transform-origin: center;
-}
-
-#hambuger input:checked + div + div {
-    opacity: 0;
-}
-
-#hambuger input:checked + div + div + div {
-    transform: translateY(-12px) rotate(-45deg);
-    transform-origin: center;
-}
-
-/* menu on */
-
-.menu_on {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 5;
-    transform: translateX(100%);
-}
-
-.menu_on.active {
-    transform: translateX(0);
-    transition-duration: 1s;
-}
-
-.menu {
-    position: absolute;
-    top: 375px;
-    left: 300px;
-    z-index: 2;
-    font-size: 50px;
-    font-family: serif_bold;
-}
-
-.menu li {
-    display: block;
-}
-
-.menu a {
-    margin-bottom: 98px;
-    color: #808080;
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
-    display: inline-block;
-}
-
-.menu a:hover {
-    color: white;
-    opacity: 1;
-    border-bottom: 2px solid white;
-}
-
 
 /* ==== section CSS ====*/
 section {
