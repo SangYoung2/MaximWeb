@@ -2,15 +2,19 @@
 const subMenu = document.querySelectorAll('.submenu > li');
 const article = document.getElementsByTagName('article');
 
-[...subMenu].forEach((x, index) => {
-    x.onclick = () => {
-        [...subMenu].forEach(e => {e.classList.remove('select')});
-        [...article].forEach(e => {e.classList.remove('on')});
-        subMenu[index].classList.add('select');
-        article[index].classList.add('on');
-    }
-})
+const urlParams = new URL(location.href).searchParams;
+const getCategory = urlParams.get('category');
 
+if(getCategory === 'story'){
+    subMenu[0].classList.add('select')
+    article[0].classList.add('on');
+}else if(getCategory === 'history'){
+    subMenu[1].classList.add('select')
+    article[1].classList.add('on');
+}else {
+    subMenu[2].classList.add('select')
+    article[2].classList.add('on');
+}
 
 // story안의 내용이 나타남
 const storyBox = document.getElementsByClassName('story_box');

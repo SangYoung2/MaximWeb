@@ -1,6 +1,4 @@
 
-product_list_get();
-
 // 제품 슬라이드 효과
 let slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
 let slideImg = document.querySelectorAll('.slides li'); //모든 슬라이드들
@@ -60,23 +58,25 @@ next.addEventListener('click', function () {
 
 // product 클릭시 아래 제품 설명이 바뀌는 효과
 const brandMenu = document.querySelectorAll('.submenu li')
-let brandName = document.querySelector('.submenu li.select').getAttribute('name')
 const product = document.querySelector('.product');
 let productImg = product.querySelector('img');
 let productName = product.querySelector("h2");
 let productInfo = product.querySelector('p');
 
-brandMenu.forEach(x => {
-    x.onclick = () => {
-        if(!x.classList.contains('select')){
-            slides.classList.add('off');
-            brandMenu.forEach(x=>{x.classList.remove('select')});
-            x.classList.add('select')
-            product_list_get();
-            setTimeout(function (){slides.classList.remove('off');}, 500)
-        }
-    }
-});
+const urlParams = new URL(location.href).searchParams;
+const getCategory = urlParams.get('category');
+
+if(getCategory === 'maxim'){
+    brandMenu[0].classList.add('select')
+    product_list_get()
+}else if(getCategory === 'kanu'){
+    brandMenu[1].classList.add('select')
+    product_list_get()
+}else {
+    brandMenu[2].classList.add('select')
+    product_list_get()
+
+}
 
 function reset_slide(){
     slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
@@ -92,19 +92,18 @@ function reset_slide(){
 }
 
 function product_list_get(){
-    const request = new XMLHttpRequest();
-    request.open('GET', '/js/product.json')
-    request.responseType = "json";
-    request.send();
-    request.onload = () => {
-        const data = request.response
-        create_product_list(data)
-        reset_slide();
-        create_product_info(data);
-    };
+    fetch('/js/product.json')
+        .then(response => response.json())
+        .then(value => {
+            create_product_list(value)
+            reset_slide();
+            create_product_info(value);
+        })
+        .catch()
 }
 
 function create_product_info(e){
+    brandName = document.querySelector('.submenu li.select').getAttribute('name');
     switch (brandName){
         case 'maxim':
             e = e.maxim

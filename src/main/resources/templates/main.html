@@ -13,11 +13,13 @@
 <body>
     <header th:replace="~{header :: header}"></header>
     <main>
+        <!-- section1 -->
         <section>
             <article class="cf">
-                <video src="/static/video/KANU_caramel_30s.mp4" th:src="@{/video/KANU_caramel_30s.mp4}" muted autoplay controls loop></video>
+                <video src="/static/video/KANU_caramel_30s.mp4" th:src="@{/video/KANU_caramel_30s.mp4}" muted autoplay loop></video>
             </article>
         </section>
+        <!-- section2 -->
         <section>
             <article class="product padding_lr_300">
                 <div class="product_left">
@@ -44,7 +46,7 @@
                         </div>
                     </div>
                     <div>
-                        <a href="product.html" th:href="@{/product}"><button class="product_btn">PRODUCT</button></a>
+                        <a href="product.html" th:href="@{/product?category=maxim}"><button class="product_btn">PRODUCT</button></a>
                     </div>
                 </div>
                 <div class="product_right">
@@ -61,6 +63,7 @@
                 </div>
             </article>
         </section>
+        <!-- section3 -->
         <section>
             <article class="story padding_lr_300">
                 <div class="story_box">
@@ -73,9 +76,10 @@
                             맥심은 국내 커피 역사를 이끌어온 정통성과 세계적인 <span>기술력</span>, 커피전문가의 <span>노하우</span>로 <br/>
                             고품질의 커피 본연의 맛과 향을 즐길 수 있는 좋은 커피입니다.</p>
                     </div>
-                    <a href="about.html" th:href="@{/about}"><button class="story_btn">ABOUT MAXIM</button></a></div>
+                    <a href="about.html" th:href="@{/about?category=story}"><button class="story_btn">ABOUT MAXIM</button></a></div>
             </article>
         </section>
+        <!-- section4 -->
         <section>
             <article class="history">
                 <div class="history_box on">
@@ -103,7 +107,7 @@
                             <p> LONDON INTERNATIONAL ADVERTISING AWARDS<br>
                                 음료부분 입상(명사 시리즈 TV-CM)</p>
                         </div>
-                        <a href="#">자세히 보기 →</a>
+                        <a href="about?category=history">자세히 보기 →</a>
                     </div>
                 </div>
                 <div class="history_box">
@@ -124,7 +128,7 @@
                             <span>1999.03</span>
                             <p> 맥심, 한국능률협회 선정 커피 부분 1위 브랜드</p>
                         </div>
-                        <a href="#">자세히 보기 →</a>
+                        <a href="about?category=history">자세히 보기 →</a>
                     </div>
                 </div>
                 <div class="history_box">
@@ -151,7 +155,7 @@
                             <span>2008.06</span>
                             <p>맥심 T.O.P 출시</p>
                         </div>
-                        <a href="#">자세히 보기 →</a>
+                        <a href="about?category=history">자세히 보기 →</a>
                     </div>
                 </div>
                 <div class="history_box">
@@ -172,7 +176,7 @@
                             <p><span>2013.08</span></p>
                             <p> 카누 2013 아시아 마케팅 효율성 페스티벌(FAME) 최고상 수상</p>
                         </div>
-                        <a href="#">자세히 보기 →</a>
+                        <a href="about?category=history">자세히 보기 →</a>
                     </div>
                 </div>
                 <div class="history_box">
@@ -203,18 +207,19 @@
                             <span>2022.07</span>
                             <p>맥심 티오피 미디엄 로스트 2종 출시</p>
                         </div>
-                        <a href="#">자세히 보기 →</a>
+                        <a href="about?category=history">자세히 보기 →</a>
                     </div>
                 </div>
             </article>
         </section>
+        <!-- section5 -->
         <section>
             <article class="news padding_lr_300">
                 <h2>NEWS</h2>
                 <div class="news_box">
                 </div>
                 <div class="news_link">
-                    <a href="#">더 많은 기사 보러가기 > </a>
+                    <a href="/news?category=news">더 많은 기사 보러가기 > </a>
                 </div>
             </article>
         </section>
@@ -223,9 +228,9 @@
         <div class="footer_wrap">
             <div class="footer_sub_menu_box">
                 <div class="sub_menu">
-                    <a href="about.html" th:href="@{about}">ABOUT MAXIM</a>
-                    <a href="product.html" th:href="@{product}">PRODUCT</a>
-                    <a href="news.html" th:href="@{news}">NEWS & MEDIA</a>
+                    <a href="about.html" th:href="@{about?category=story}">ABOUT MAXIM</a>
+                    <a href="product.html" th:href="@{product?category=maxim}">PRODUCT</a>
+                    <a href="news.html" th:href="@{news?category=news}">NEWS & MEDIA</a>
                     <div>
                         <p><ins>ADDRESS</ins></p>
                         <p>[부평공장] 인천시 부평구 새벌로 55</p>
@@ -233,9 +238,9 @@
                     </div>
                 </div>
                 <div class="sub_menu">
-                    <a href="#">개인정보처리방침</a>
-                    <a href="#">이용약관</a>
-                    <a href="#">영상정보처리기기운영관리방침</a>
+                    <a href="#" onclick="location.reload()">개인정보처리방침</a>
+                    <a href="#" onclick="location.reload()">이용약관</a>
+                    <a href="#" onclick="location.reload()">영상정보처리기기운영관리방침</a>
                     <div>
                         <p><ins>TEL</ins></p>
                         <p>대표번호 1588-2233</p>
@@ -243,7 +248,7 @@
                     </div>
                 </div>
                 <div class="sub_menu">
-                    <a href="#">FAMILY SITE +</a>
+                    <a href="#" onclick="location.reload()">FAMILY SITE +</a>
                 </div>
             </div>
             <div class="brand_sns_box">

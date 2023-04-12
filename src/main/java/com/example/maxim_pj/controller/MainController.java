@@ -33,10 +33,14 @@ public class MainController {
     public void main(){}
 
     @GetMapping("/about")
-    public void about(){}
+    public void about(
+            @RequestParam(required = false) String category
+    ){}
 
     @GetMapping("/product")
-    public void product(){};
+    public void product(
+            @RequestParam(required = false) String category
+    ){};
 
     @GetMapping("/news")
     public void get_news(
