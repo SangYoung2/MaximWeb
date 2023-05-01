@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>Maxim_PJ</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Maxim_PJ</name>
     <description>Maxim_PJ</description>
     <dependencies>
