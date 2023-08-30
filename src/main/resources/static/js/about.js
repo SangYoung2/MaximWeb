@@ -54,4 +54,4 @@ function sloganFadeEvent() {
     fadeCount++;
 };
 
-setInterval(sloganFadeEvent,5000);
+setInterval(sloganFadeEvent,3000);

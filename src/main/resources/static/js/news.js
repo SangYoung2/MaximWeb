@@ -4,8 +4,8 @@ let ContentName = "";
 
 // 파라미터값을 변수에 입력
 const urlParams = new URL(location.href).searchParams;
-const getNo = parseInt(urlParams.get('num'))
 const getCategory = urlParams.get('category')
+const getNo = parseInt(urlParams.get('num'))
 
 if(getCategory === 'news') {
     SubMenu.item(0).classList.add('select')
@@ -21,6 +21,25 @@ if(getNo >= 0) {
     get_detail_content(getNo)
 } else {
     contents_list_get();
+}
+
+function get_detail_content(no){
+    window.scrollTo({top:0})
+    ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+
+    fetch("/js/news&media.json")
+        .then(value => value.json())
+        .then(value => {
+            switch (ContentName) {
+                case 'news':
+                    create_detail_content(value.news, no)
+                    break;
+                case 'media':
+                    create_detail_content(value.media, no)
+                    break;
+            }
+        })
+        .catch(reason => console.log(reason))
 }
 
 
@@ -50,17 +69,6 @@ function contents_list_get(index=1){
         })
         .catch(reason => console.log(reason))
 }
-
-// SubMenu.forEach(x => {
-//     x.onclick = () => {
-//         SubMenu.forEach(x => {
-//             x.classList.remove('select')
-//         })
-//         x.classList.add('select');
-//         ContentName = document.querySelector('.submenu li.select').getAttribute('name');
-//         contents_list_get()
-//     }
-// })
 
 function setting(e){
     ContentsContainer.innerHTML = '';
@@ -190,24 +198,24 @@ function page_change(e){
     })
 }
 
-function get_detail_content(no){
-    window.scrollTo({top:0})
-    ContentName = document.querySelector('.submenu li.select').getAttribute('name');
-
-    fetch("/js/news&media.json")
-        .then(value => value.json())
-        .then(value => {
-            switch (ContentName) {
-                case 'news':
-                    create_detail_content(value.news, no)
-                    break;
-                case 'media':
-                    create_detail_content(value.media, no)
-                    break;
-            }
-        })
-        .catch(reason => console.log(reason))
-}
+// function get_detail_content(no){
+//     window.scrollTo({top:0})
+//     ContentName = document.querySelector('.submenu li.select').getAttribute('name');
+//
+//     fetch("/js/news&media.json")
+//         .then(value => value.json())
+//         .then(value => {
+//             switch (ContentName) {
+//                 case 'news':
+//                     create_detail_content(value.news, no)
+//                     break;
+//                 case 'media':
+//                     create_detail_content(value.media, no)
+//                     break;
+//             }
+//         })
+//         .catch(reason => console.log(reason))
+// }
 
 function create_detail_content(e, no){
     ContentsContainer.innerHTML = '';

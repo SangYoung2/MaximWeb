@@ -28,7 +28,6 @@ function nextSlide(num) {
     if (slideRun){
         slideRun = false;
         if((slideCount % 3) !== 0 && currentIdx === maxCurrentIndex - 1){
-            console.log(((slideSize * 3) + ((slideSize) * (slideCount % 3))))
             slides.style.left = -(((num-1) * (slideSize * 3)) + ((slideSize) * (slideCount % 3))) + 'px';
         }
         else {
@@ -75,7 +74,6 @@ if(getCategory === 'maxim'){
 }else {
     brandMenu[2].classList.add('select')
     product_list_get()
-
 }
 
 function reset_slide(){
@@ -99,7 +97,7 @@ function product_list_get(){
             reset_slide();
             create_product_info(value);
         })
-        .catch()
+        .catch(reason => console.log(reason))
 }
 
 function create_product_info(e){
